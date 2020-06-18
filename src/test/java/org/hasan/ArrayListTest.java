@@ -1,0 +1,18 @@
+package org.hasan;
+
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertTrue;
+
+public class ArrayListTest {
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testCantAddAtArbitraryIndexes() {
+        List<String> myList = new ArrayList<>();
+        myList.add(3, "a");
+    }
+}
