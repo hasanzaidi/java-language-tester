@@ -18,10 +18,7 @@ public class ArrayListTest {
 
     @Test
     public void testConvertToArray() {
-        List<String> fruits = new ArrayList<>();
-        fruits.add("Orange");
-        fruits.add("Apple");
-        fruits.add("Banana");
+        List<String> fruits = List.of("Orange", "Apple", "Banana");
 
         String[] arr = fruits.toArray(new String[fruits.size()]);
 
