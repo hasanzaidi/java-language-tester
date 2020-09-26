@@ -2,8 +2,15 @@ package org.hasan;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.hasSize;
 
 public class StringTest {
     @Test
@@ -46,5 +53,39 @@ public class StringTest {
         // Because need .equals when creating Strings with new
         assertThat(a.equals(b), is(true));
         assertThat(a == b, is(false));
+    }
+
+    @Test
+    public void testRetrievingAsciiAndUnicode() {
+        List<Integer> list1 = new ArrayList<>();
+        String str = "a" + "😀" + "a";
+        for (int i = 0; i < str.length(); i++) {
+            int v = str.codePointAt(i);
+            list1.add(v);
+        }
+
+        assertThat(list1, hasSize(4));
+        assertThat(list1.get(0), is(97));
+        assertThat(list1.get(1), is(128512));
+
+        // Value 56832 is half of emoji, which is not correct
+        assertThat(list1.get(2), is(56832));
+        assertThat(list1.get(3), is(97));
+
+        // Better way by getting charCount
+        List<Integer> list2 = new ArrayList<>();
+        int offset = 0;
+        while (offset < str.length()) {
+            int v = str.codePointAt(offset);
+            list2.add(v);
+
+            offset += Character.charCount(v);
+        }
+
+        // Now the list has only 3 values, as expected
+        assertThat(list2, hasSize(3));
+        assertThat(list2.get(0), is(97));
+        assertThat(list2.get(1), is(128512));
+        assertThat(list2.get(2), is(97));
     }
 }
