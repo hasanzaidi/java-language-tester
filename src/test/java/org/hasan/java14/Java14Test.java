@@ -1,4 +1,4 @@
-package org.hasan.java12;
+package org.hasan.java14;
 
 import org.junit.Test;
 
@@ -12,7 +12,7 @@ import static java.util.Calendar.WEDNESDAY;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class Java12Test {
+public class Java14Test {
     @Test
     public void testSwitchExpression() {
         int day = MONDAY;
@@ -26,5 +26,12 @@ public class Java12Test {
         };
 
         assertThat(numLetters, is(6));
+    }
+
+    @Test
+    public void testRecordPreview() {
+        Point p = new Point(1, 2);
+        assertThat(p.x(), is(1));
+        assertThat(p.y(), is(2));
     }
 }

@@ -7,7 +7,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class Java13Test {
     @Test
-    public void testMultilineStrings() {
+    public void testMultilineStringsPreview() {
         String textBlock = """
 				Hi
 				Hello
