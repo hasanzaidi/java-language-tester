@@ -22,8 +22,14 @@ public class Java8Test {
     @Test
     public void streamSequenceOfValues() {
         IntPredicate oddNumbers = val -> val % 2 == 1;
-        IntStream range = IntStream.range(1, 10).filter(oddNumbers);
-        assertThat(range.toArray(), is(new int[] {1, 3, 5, 7, 9}));
+
+        // Creating an array
+        int[] numbersArr = IntStream.range(1, 10).filter(oddNumbers).toArray();
+        assertThat(numbersArr, is(new int[] {1, 3, 5, 7, 9}));
+
+        // Creating a List
+        List<Integer> numbersColl = IntStream.range(1, 10).filter(oddNumbers).boxed().collect(toList());
+        assertThat(numbersColl, is(List.of(1, 3, 5, 7, 9)));
     }
 
     @Test
