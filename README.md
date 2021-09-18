@@ -1,5 +1,5 @@
 # java-language-tester
-Repo for testing features of the Scala language as well as some popular libraries.
+Repo for testing features of the Java language.
 
 ## Run Application
 To compile and run the unit tests:

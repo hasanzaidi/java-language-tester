@@ -1,6 +1,6 @@
 package org.hasan.java14;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static java.util.Calendar.FRIDAY;
 import static java.util.Calendar.MONDAY;
