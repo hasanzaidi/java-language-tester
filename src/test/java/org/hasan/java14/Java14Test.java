@@ -29,7 +29,7 @@ public class Java14Test {
     }
 
     @Test
-    public void testRecordPreview() {
+    public void testRecord() {
         Point p = new Point(1, 2);
         assertThat(p.x(), is(1));
         assertThat(p.y(), is(2));
