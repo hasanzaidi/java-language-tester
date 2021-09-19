@@ -11,6 +11,8 @@ import static java.util.Calendar.TUESDAY;
 import static java.util.Calendar.WEDNESDAY;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Java14Test {
     @Test
@@ -33,5 +35,11 @@ public class Java14Test {
         Point p = new Point(1, 2);
         assertThat(p.x(), is(1));
         assertThat(p.y(), is(2));
+
+        Point p2 = new Point(1, 2);
+        assertTrue(p.equals(p2));
+
+        Point p3 = new Point(4, 3);
+        assertFalse(p.equals(p3));
     }
 }
