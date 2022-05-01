@@ -2,7 +2,6 @@ package org.hasan.java11;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -17,7 +16,7 @@ public class Java11Test {
     }
 
     @Test
-    public void testNewFileMethods() throws IOException {
+    public void testNewFileMethods() throws Exception {
         Path path = Files.writeString(Files.createTempFile("test", ".txt"), "Test String");
         String str = Files.readString(path);
         assertThat(str, is("Test String"));
