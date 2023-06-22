@@ -10,9 +10,9 @@ import java.util.stream.Collectors;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class FilesTest {
+class FilesTest {
     @Test
-    public void testReadingFile() throws Exception {
+    void testReadingFile() throws Exception {
         // Given/When:
         String content = readFromFile(this.getClass(), "/org/hasan/files/myfile.txt");
 

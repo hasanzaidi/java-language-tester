@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class Java10Test {
+class Java10Test {
     @Test
-    public void testVarKeyword() {
+    void testVarKeyword() {
         var myString = "hello world";
         assertThat(myString, is("hello world"));
     }

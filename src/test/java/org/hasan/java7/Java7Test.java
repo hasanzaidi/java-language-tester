@@ -12,9 +12,9 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class Java7Test {
+class Java7Test {
     @Test
-    public void stringInSwitchStatements() {
+    void stringInSwitchStatements() {
         // Given:
         String status = "EXECUTE";
 
@@ -39,7 +39,7 @@ public class Java7Test {
     }
 
     @Test
-    public void multipleExceptionCatching() {
+    void multipleExceptionCatching() {
         try {
             int million = 1_000_000;
             assertThat(million, is(1000000));
@@ -49,7 +49,7 @@ public class Java7Test {
     }
 
     @Test
-    public void tryWithResources() {
+    void tryWithResources() {
         // Given:
         List<String> content = new ArrayList<>();
 

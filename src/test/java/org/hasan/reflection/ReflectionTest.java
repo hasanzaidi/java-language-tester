@@ -7,9 +7,9 @@ import java.lang.reflect.Field;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class ReflectionTest {
+class ReflectionTest {
     @Test
-    public void testUpdatingValueInField() throws Exception {
+    void testUpdatingValueInField() throws Exception {
         // Value initially
         SimpleClass object = new SimpleClass();
         assertThat(object.getMyPrivateField(), is(123));

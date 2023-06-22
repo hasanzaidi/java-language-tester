@@ -11,9 +11,9 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class HashCodeTester {
+class HashCodeTester {
     @Test
-    public void testHashMapWithoutHashCode() {
+    void testHashMapWithoutHashCode() {
         Map<ClassWithNoHashCode, String> map = new HashMap<>();
         ClassWithNoHashCode classA = new ClassWithNoHashCode("SimpleClass");
         map.put(classA, "Banana");
@@ -28,7 +28,7 @@ public class HashCodeTester {
     }
 
     @Test
-    public void testHashSetWithoutHashCode() {
+    void testHashSetWithoutHashCode() {
         ClassWithNoHashCode class1 = new ClassWithNoHashCode("Class1");
         ClassWithNoHashCode class2 = new ClassWithNoHashCode("Class2");
         ClassWithNoHashCode duplicateClass1 = new ClassWithNoHashCode("Class1");

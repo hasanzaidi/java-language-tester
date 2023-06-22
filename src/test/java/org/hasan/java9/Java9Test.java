@@ -9,9 +9,9 @@ import java.util.Set;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class Java9Test {
+class Java9Test {
     @Test
-    public void testCollectionFactoryMethods() {
+    void testCollectionFactoryMethods() {
         List<String> fruits = List.of("Apple", "Mango", "Banana");
         assertThat(fruits.get(0), is("Apple"));
 

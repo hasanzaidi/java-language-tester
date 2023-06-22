@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-public class Java15Test {
+class Java15Test {
     @Test
-    public void testTextBlocks() {
+    void testTextBlocks() {
         // With text blocks, no need to escape quotes or add "+" to concatenate lines
         String json = """
         {

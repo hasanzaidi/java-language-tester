@@ -12,9 +12,9 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class Java8Test {
+class Java8Test {
     @Test
-    public void streamSequenceOfValues() {
+    void streamSequenceOfValues() {
         IntPredicate oddNumbers = val -> val % 2 == 1;
 
         // Creating an array
@@ -27,7 +27,7 @@ public class Java8Test {
     }
 
     @Test
-    public void optionalClass() {
+    void optionalClass() {
         Optional<String> version = Optional.ofNullable("2.0");
         assertThat(version.isPresent(), is(true));
         assertThat(version.orElse("1.0"), is("2.0"));

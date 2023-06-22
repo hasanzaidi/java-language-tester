@@ -9,16 +9,16 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasSize;
 
-public class StringTest {
+class StringTest {
     @Test
-    public void testAscii() {
+    void testAscii() {
         String a = "Hello";
         char myChar = a.charAt(2);
         assertThat(myChar, is('l'));
     }
 
     @Test
-    public void testNonAscii() {
+    void testNonAscii() {
         String smileEmoji = "\uD83D\uDE00";
         assertThat(smileEmoji.length(), is(2));
         char smileEmojiChar = smileEmoji.charAt(0);
@@ -32,13 +32,13 @@ public class StringTest {
     }
 
     @Test
-    public void testToBinaryString() {
+    void testToBinaryString() {
         assertThat(Integer.toBinaryString(2), is("10"));
         assertThat(Integer.toBinaryString(-2), is("11111111111111111111111111111110"));
     }
 
     @Test
-    public void testStringPool() {
+    void testStringPool() {
         String a = new String("abc");
         String b = "abc";
         String c = "abc";
@@ -53,7 +53,7 @@ public class StringTest {
     }
 
     @Test
-    public void testRetrievingAsciiAndUnicode() {
+    void testRetrievingAsciiAndUnicode() {
         List<Integer> list1 = new ArrayList<>();
         String str = "a" + "😀" + "a";
         for (int i = 0; i < str.length(); i++) {

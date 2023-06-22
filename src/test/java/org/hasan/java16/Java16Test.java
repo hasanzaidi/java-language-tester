@@ -7,9 +7,9 @@ import java.util.Locale;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-public class Java16Test {
+class Java16Test {
     @Test
-    public void testPatternMatching() {
+    void testPatternMatching() {
         // With pattern matching, can assign object to String without any casting
         Object myObject = "ORANGE";
         if (myObject instanceof String myString) {

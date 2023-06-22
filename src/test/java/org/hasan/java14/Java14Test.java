@@ -14,9 +14,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class Java14Test {
+class Java14Test {
     @Test
-    public void testSwitchExpression() {
+    void testSwitchExpression() {
         int day = MONDAY;
 
         int numLetters = switch (day) {
@@ -31,7 +31,7 @@ public class Java14Test {
     }
 
     @Test
-    public void testRecord() {
+    void testRecord() {
         Point p = new Point(1, 2);
         assertThat(p.x(), is(1));
         assertThat(p.y(), is(2));

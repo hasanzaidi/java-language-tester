@@ -7,9 +7,9 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-public class GenericClassTest {
+class GenericClassTest {
     @Test
-    public void testAdd() {
+    void testAdd() {
         GenericClass<String> gc = new GenericClass<>();
         gc.add("abc");
         assertThat(gc.getList(), is(List.of("abc")));
