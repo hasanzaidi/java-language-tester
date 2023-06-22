@@ -13,7 +13,6 @@ import static java.util.stream.Collectors.toList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-// Technically part of Java8Test but split out as it got quite big
 class LambdasTest {
     @Test
     void sorting() {
@@ -28,7 +27,7 @@ class LambdasTest {
         long countOfAs = vals.stream().filter(v -> v.equals("a")).count();
         assertThat(countOfAs, is(2L));
 
-        List<String> nonAs = vals.stream().filter(v -> !v.equals("a")).collect(toList());
+        List<String> nonAs = vals.stream().filter(v -> !v.equals("a")).toList();
         assertThat(nonAs, is(List.of("x", "m", "x")));
     }
 
@@ -80,7 +79,7 @@ class LambdasTest {
         // When:
         List<Integer> combinedList = Stream.of(a, b, c)
                 .flatMap(list -> list.stream())
-                .collect(Collectors.toList());
+                .toList();
 
         // Then:
         assertThat(combinedList, is(List.of(1, 4, 10, 20, 30, 5, 15)));
