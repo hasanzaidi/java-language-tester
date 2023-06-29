@@ -9,7 +9,6 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.toList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -40,10 +39,15 @@ class LambdasTest {
         assertThat(valCount.get("m"), is(1L));
     }
 
+    // Peek provides ability to debug stream
     @Test
     void mapFunction() {
-        List<String> fruits = List.of("Apple", "Banana", "Strawberry");
-        List<String> upper = fruits.stream().map(v -> v.toUpperCase()).collect(toList());
+        List<String> fruits = List.of("Banana", "Apple", "Strawberry");
+        List<String> upper = fruits.stream()
+                .map(v -> v.toUpperCase())
+                .peek(f -> System.out.println(f))
+                .sorted()
+                .toList();
         assertThat(upper, is(List.of("APPLE", "BANANA", "STRAWBERRY")));
 
         // Get the smallest String in the list
