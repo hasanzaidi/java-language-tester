@@ -2,9 +2,11 @@ package org.hasan.java8;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -28,6 +30,22 @@ class LambdasTest {
 
         List<String> nonAs = vals.stream().filter(v -> !v.equals("a")).toList();
         assertThat(nonAs, is(List.of("x", "m", "x")));
+    }
+
+    @Test
+    void filteringNulls() {
+        // Given:
+        // Can't use List.of here because it does not allow nulls
+        List<String> vals = new ArrayList<>();
+        vals.add("x");
+        vals.add(null);
+        vals.add("y");
+
+        // When:
+        List<String> nonNulls = vals.stream().filter(Objects::nonNull).toList();
+
+        // Then:
+        assertThat(nonNulls, is(List.of("x", "y")));
     }
 
     @Test

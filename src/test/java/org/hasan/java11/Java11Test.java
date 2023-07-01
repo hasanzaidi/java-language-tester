@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Optional;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -20,5 +21,11 @@ class Java11Test {
         Path path = Files.writeString(Files.createTempFile("test", ".txt"), "Test String");
         String str = Files.readString(path);
         assertThat(str, is("Test String"));
+    }
+
+    @Test
+    void testIsEmpty() {
+        Optional<String> version = Optional.empty();
+        assertThat(version.isEmpty(), is(true));
     }
 }
