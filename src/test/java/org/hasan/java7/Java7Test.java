@@ -1,15 +1,13 @@
 package org.hasan.java7;
 
 import org.junit.jupiter.api.Test;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class Java7Test {
@@ -35,14 +33,14 @@ class Java7Test {
         }
 
         // Then:
-        assertThat(result, is("Status is Execute"));
+        assertThat(result).isEqualTo("Status is Execute");
     }
 
     @Test
     void multipleExceptionCatching() {
         try {
             int million = 1_000_000;
-            assertThat(million, is(1000000));
+            assertThat(million).isEqualTo(1000000);
         } catch (IllegalArgumentException | NullPointerException e) {
             assertTrue(true);
         }
@@ -64,6 +62,6 @@ class Java7Test {
         }
 
         // Then:
-        assertThat(content.get(2).trim(), is("<modelVersion>4.0.0</modelVersion>"));
+        assertThat(content.get(2).trim()).isEqualTo("<modelVersion>4.0.0</modelVersion>");
     }
 }

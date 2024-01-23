@@ -1,9 +1,7 @@
 package org.hasan.java15;
 
 import org.junit.jupiter.api.Test;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class Java15Test {
     @Test
@@ -18,6 +16,6 @@ class Java15Test {
         }
         """;
 
-        assertThat(json, is("{\n \"name\": \"painter\", \"qty\": 18,\n \"size\": {\"width\": 1, \"height\": 8, \"unit\": \"in\"},\n \"tags\": [\"writing\", \"pen\"],\n \"rating\": 7\n}\n"));
+        assertThat(json).isEqualTo("{\n \"name\": \"painter\", \"qty\": 18,\n \"size\": {\"width\": 1, \"height\": 8, \"unit\": \"in\"},\n \"tags\": [\"writing\", \"pen\"],\n \"rating\": 7\n}\n");
     }
 }

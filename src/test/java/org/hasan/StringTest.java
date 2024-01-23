@@ -1,40 +1,36 @@
 package org.hasan;
 
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.hasSize;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class StringTest {
     @Test
     void testAscii() {
         String a = "Hello";
         char myChar = a.charAt(2);
-        assertThat(myChar, is('l'));
+        assertThat(myChar).isEqualTo('l');
     }
 
     @Test
     void testNonAscii() {
         String smileEmoji = "\uD83D\uDE00";
-        assertThat(smileEmoji.length(), is(2));
+        assertThat(smileEmoji.length()).isEqualTo(2);
         char smileEmojiChar = smileEmoji.charAt(0);
 
         // Using charAt only gets first 16 bits
-        assertThat(smileEmojiChar, is('\uD83D'));
+        assertThat(smileEmojiChar).isEqualTo('\uD83D');
 
         int smileEmojiChar2 = smileEmoji.codePointAt(0);
         String smileEmojiString = new StringBuilder().appendCodePoint(smileEmojiChar2).toString();
-        assertThat(smileEmojiString, is("😀"));
+        assertThat(smileEmojiString).isEqualTo("😀");
     }
 
     @Test
     void testToBinaryString() {
-        assertThat(Integer.toBinaryString(2), is("10"));
-        assertThat(Integer.toBinaryString(-2), is("11111111111111111111111111111110"));
+        assertThat(Integer.toBinaryString(2)).isEqualTo("10");
+        assertThat(Integer.toBinaryString(-2)).isEqualTo("11111111111111111111111111111110");
     }
 
     @Test
@@ -44,12 +40,12 @@ class StringTest {
         String c = "abc";
 
         // Because of String pool can use either .equals or == for Strings when creating Strings using quotes
-        assertThat(b.equals(c), is(true));
-        assertThat(b == c, is(true));
+        assertThat(b.equals(c)).isTrue();
+        assertThat(b == c).isTrue();
 
         // Because need .equals when creating Strings with new
-        assertThat(a.equals(b), is(true));
-        assertThat(a == b, is(false));
+        assertThat(a.equals(b)).isTrue();
+        assertThat(a == b).isFalse();
     }
 
     @Test
@@ -61,13 +57,13 @@ class StringTest {
             list1.add(v);
         }
 
-        assertThat(list1, hasSize(4));
-        assertThat(list1.get(0), is(97));
-        assertThat(list1.get(1), is(128512));
+        assertThat(list1).hasSize(4);
+        assertThat(list1.get(0)).isEqualTo(97);
+        assertThat(list1.get(1)).isEqualTo(128512);
 
         // Value 56832 is half of emoji, which is not correct
-        assertThat(list1.get(2), is(56832));
-        assertThat(list1.get(3), is(97));
+        assertThat(list1.get(2)).isEqualTo(56832);
+        assertThat(list1.get(3)).isEqualTo(97);
 
         // Better way by getting charCount
         List<Integer> list2 = new ArrayList<>();
@@ -80,9 +76,9 @@ class StringTest {
         }
 
         // Now the list has only 3 values, as expected
-        assertThat(list2, hasSize(3));
-        assertThat(list2.get(0), is(97));
-        assertThat(list2.get(1), is(128512));
-        assertThat(list2.get(2), is(97));
+        assertThat(list2).hasSize(3);
+        assertThat(list2.get(0)).isEqualTo(97);
+        assertThat(list2.get(1)).isEqualTo(128512);
+        assertThat(list2.get(2)).isEqualTo(97);
     }
 }

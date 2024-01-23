@@ -1,11 +1,9 @@
 package org.hasan.java8;
 
 import org.junit.jupiter.api.Test;
-
 import java.util.Optional;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class OptionalsTest {
@@ -13,9 +11,9 @@ class OptionalsTest {
     @Test
     void testOf() {
         Optional<String> version = Optional.of("2.0");
-        assertThat(version.isPresent(), is(true));
-        assertThat(version.get(), is("2.0"));
-        assertThat(version.orElse("1.0"), is("2.0"));
+        assertThat(version.isPresent()).isTrue();
+        assertThat(version.get()).isEqualTo("2.0");
+        assertThat(version.orElse("1.0")).isEqualTo("2.0");
 
         // A non-nullable option will throw an exception
         try {
@@ -30,18 +28,18 @@ class OptionalsTest {
     @Test
     void testOfNullable() {
         Optional<String> version = Optional.ofNullable("2.0");
-        assertThat(version.isPresent(), is(true));
-        assertThat(version.orElse("1.0"), is("2.0"));
+        assertThat(version.isPresent()).isTrue();
+        assertThat(version.orElse("1.0")).isEqualTo("2.0");
 
         Optional<String> version2 = Optional.ofNullable(null);
-        assertThat(version2.isPresent(), is(false));
-        assertThat(version2.orElse("1.0"), is("1.0"));
+        assertThat(version2.isPresent()).isFalse();
+        assertThat(version2.orElse("1.0")).isEqualTo("1.0");
     }
 
     // Use "ofNullable" if value may be null
     @Test
     void testEmpty() {
         Optional<String> version = Optional.empty();
-        assertThat(version.isPresent(), is(false));
+        assertThat(version.isPresent()).isFalse();
     }
 }

@@ -1,12 +1,9 @@
 package org.hasan;
 
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ArrayListTest {
@@ -24,6 +21,6 @@ class ArrayListTest {
 
         String[] arr = fruits.toArray(new String[fruits.size()]);
 
-        assertThat(arr, is(new String[] {"Orange", "Apple", "Banana"}));
+        assertThat(arr).isEqualTo(new String[] {"Orange", "Apple", "Banana"});
     }
 }

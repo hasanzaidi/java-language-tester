@@ -1,19 +1,16 @@
 package org.hasan.java10;
 
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.hasSize;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class Java10Test {
     @Test
     void testVarKeyword() {
         var myString = "hello world";
-        assertThat(myString, is("hello world"));
+        assertThat(myString).isEqualTo("hello world");
     }
 
     @Test
@@ -28,7 +25,7 @@ class Java10Test {
         List<Integer> myUnmodifiableCopy = List.copyOf(myList);
 
         // Then:
-        assertThat(myList, hasSize(2));
-        assertThat(myUnmodifiableCopy, hasSize(2));
+        assertThat(myList).hasSize(2);
+        assertThat(myUnmodifiableCopy).hasSize(2);
     }
 }

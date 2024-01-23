@@ -1,12 +1,9 @@
 package org.hasan;
 
 import org.junit.jupiter.api.Test;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class RegExpTest {
     @Test
@@ -23,7 +20,7 @@ class RegExpTest {
         }
 
         // Then:
-        assertThat(consumerKey, is("123"));
+        assertThat(consumerKey).isEqualTo("123");
     }
 
     @Test
@@ -31,7 +28,7 @@ class RegExpTest {
         String letterInput = "abc myvalue";
         String numberInput = "123 myvalue";
 
-        assertThat(letterInput.matches("\\d.*"), is(false));
-        assertThat(numberInput.matches("\\d.*"), is(true));
+        assertThat(letterInput.matches("\\d.*")).isFalse();
+        assertThat(numberInput.matches("\\d.*")).isTrue();
     }
 }

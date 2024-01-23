@@ -1,7 +1,6 @@
 package org.hasan.java8;
 
 import org.junit.jupiter.api.Test;
-
 import java.time.LocalDate;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;

@@ -1,12 +1,10 @@
 package org.hasan.java8;
 
 import org.junit.jupiter.api.Test;
-
 import java.util.function.IntSupplier;
 import java.util.function.Supplier;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import static org.assertj.core.api.Assertions.assertThat;
 
 // Suppliers don't accept arguments but return a result
 class SupplierTest {
@@ -19,7 +17,7 @@ class SupplierTest {
         Double result = two.get();
 
         // Then:
-        assertThat(result, is(2.0));
+        assertThat(result).isEqualTo(2.0);
     }
 
     @Test
@@ -33,7 +31,7 @@ class SupplierTest {
         int result = add(two, divisionByZero);
 
         // Then:
-        assertThat(result, is(2));
+        assertThat(result).isEqualTo(2);
     }
 
     // Supplies are lazily evaluated so "unusedSupplier" is never executed as "getAsInt" is never called for it

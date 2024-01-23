@@ -9,8 +9,7 @@ import static java.util.Calendar.SUNDAY;
 import static java.util.Calendar.THURSDAY;
 import static java.util.Calendar.TUESDAY;
 import static java.util.Calendar.WEDNESDAY;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class Java14Test {
     @Test
@@ -25,27 +24,27 @@ class Java14Test {
             default -> 0;
         };
 
-        assertThat(numLetters, is(6));
+        assertThat(numLetters).isEqualTo(6);
     }
 
     @Test
     void testRecord() {
         Point p = new Point(1, 2);
-        assertThat(p.x(), is(1));
-        assertThat(p.y(), is(2));
+        assertThat(p.x()).isEqualTo(1);
+        assertThat(p.y()).isEqualTo(2);
 
         Point p2 = new Point(1, 2);
-        assertThat(p.equals(p2), is(true));
+        assertThat(p.equals(p2)).isTrue();
 
         Point p3 = new Point(4, 3);
-        assertThat(p.equals(p3), is(false));
+        assertThat(p.equals(p3)).isFalse();
     }
 
     @Test
     void testRecordUsingLombokBuilder() {
         Point p1 = new Point(1, 2);
         Point p2 = Point.builder().x(1).y(2).build();
-        assertThat(p1.x(), is(p2.x()));
-        assertThat(p1.y(), is(p2.y()));
+        assertThat(p1.x()).isEqualTo(p2.x());
+        assertThat(p1.y()).isEqualTo(p2.y());
     }
 }

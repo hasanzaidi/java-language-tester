@@ -1,12 +1,10 @@
 package org.hasan.java8;
 
 import org.junit.jupiter.api.Test;
-
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import static org.assertj.core.api.Assertions.assertThat;
 
 // Functions accept arguments and return a result
 class FunctionTest {
@@ -20,7 +18,7 @@ class FunctionTest {
         Integer result = length.apply("Hello World");
 
         // Then:
-        assertThat(result, is(11));
+        assertThat(result).isEqualTo(11);
     }
 
     @Test
@@ -33,7 +31,7 @@ class FunctionTest {
         Integer result = length.apply("Hello", "World");
 
         // Then:
-        assertThat(result, is(10));
+        assertThat(result).isEqualTo(10);
     }
 
     @Test
@@ -48,6 +46,6 @@ class FunctionTest {
                 .apply(123);
 
         // Then:
-        assertThat(result, is("123."));
+        assertThat(result).isEqualTo("123.");
     }
 }
