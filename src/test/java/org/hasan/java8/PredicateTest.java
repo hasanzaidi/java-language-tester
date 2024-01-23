@@ -21,7 +21,7 @@ class PredicateTest {
         List<Integer> numbersArr = vals.stream().filter(greaterThanEight).toList();
 
         // Then:
-        assertThat(numbersArr).isEqualTo(List.of(9, 20));
+        assertThat(numbersArr).containsExactly(9, 20);
     }
 
     @Test

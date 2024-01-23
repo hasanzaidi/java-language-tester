@@ -30,7 +30,7 @@ class LambdasTest {
         assertThat(countOfAs).isEqualTo(2L);
 
         List<String> nonAs = vals.stream().filter(v -> !v.equals("a")).toList();
-        assertThat(nonAs).isEqualTo(List.of("x", "m", "x"));
+        assertThat(nonAs).containsExactly("x", "m", "x");
     }
 
     @Test
@@ -46,7 +46,7 @@ class LambdasTest {
         List<String> nonNulls = vals.stream().filter(Objects::nonNull).toList();
 
         // Then:
-        assertThat(nonNulls).isEqualTo(List.of("x", "y"));
+        assertThat(nonNulls).containsExactly("x", "y");
     }
 
     @Test
@@ -105,7 +105,7 @@ class LambdasTest {
                 .toList();
 
         // Then:
-        assertThat(combinedList).isEqualTo(List.of(1, 4, 10, 20, 30, 5, 15));
+        assertThat(combinedList).containsExactly(1, 4, 10, 20, 30, 5, 15);
     }
 
     @Test
