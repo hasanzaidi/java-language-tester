@@ -1,8 +1,6 @@
 package org.hasan.java8;
 
-
 import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 class FunctionalInterfaceTest {
