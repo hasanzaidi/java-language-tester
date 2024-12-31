@@ -119,7 +119,7 @@ class LambdasTest {
                         minBy(Integer::compareTo),
                         maxBy(Integer::compareTo),
                         (e1, e2) -> {
-                            Map<String, Integer> map = new HashMap();
+                            Map<String, Integer> map = new HashMap<>();
                             map.put("MIN", e1.get());
                             map.put("MAX", e2.get());
                             return map;
